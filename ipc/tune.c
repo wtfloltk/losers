@@ -41,27 +41,27 @@ Result tunePrev() {
     return serviceDispatch(&g_tune, TuneIpcCmd_Prev);
 }
 
-Result tuneGetVolume(float *out) {
+Result tuneGetVolume(double *out) {
     return serviceDispatchOut(&g_tune, TuneIpcCmd_GetVolume, *out);
 }
 
-Result tuneSetVolume(float volume) {
+Result tuneSetVolume(double volume) {
     return serviceDispatchIn(&g_tune, TuneIpcCmd_SetVolume, volume);
 }
 
-Result tuneGetTitleVolume(float *out) {
+Result tuneGetTitleVolume(double *out) {
     return serviceDispatchOut(&g_tune, TuneIpcCmd_GetTitleVolume, *out);
 }
 
-Result tuneSetTitleVolume(float volume) {
+Result tuneSetTitleVolume(double volume) {
     return serviceDispatchIn(&g_tune, TuneIpcCmd_SetTitleVolume, volume);
 }
 
-Result tuneGetDefaultTitleVolume(float *out) {
+Result tuneGetDefaultTitleVolume(double *out) {
     return serviceDispatchOut(&g_tune, TuneIpcCmd_GetDefaultTitleVolume, *out);
 }
 
-Result tuneSetDefaultTitleVolume(float volume) {
+Result tuneSetDefaultTitleVolume(double volume) {
     return serviceDispatchIn(&g_tune, TuneIpcCmd_SetDefaultTitleVolume, volume);
 }
 

@@ -795,12 +795,12 @@ static unsigned drmp3_hdr_bitrate_kbps(const drmp3_uint8 *h)
         { { 0,4,8,12,16,20,24,28,32,40,48,56,64,72,80 }, { 0,4,8,12,16,20,24,28,32,40,48,56,64,72,80 }, { 0,16,24,28,32,40,48,56,64,72,80,88,96,112,128 } },
         { { 0,16,20,24,28,32,40,48,56,64,80,96,112,128,160 }, { 0,16,24,28,32,40,48,56,64,80,96,112,128,160,192 }, { 0,16,32,48,64,80,96,112,128,144,160,176,192,208,224 } },
     };
-    return 2*halfrate[!!DRMP3_HDR_TEST_MPEG1(h)][DRMP3_HDR_GET_LAYER(h) - 1][DRMP3_HDR_GET_BITRATE(h)];
+    return 4*halfrate[!!DRMP3_HDR_TEST_MPEG1(h)][DRMP3_HDR_GET_LAYER(h) - 1][DRMP3_HDR_GET_BITRATE(h)];
 }
 
 static unsigned drmp3_hdr_sample_rate_hz(const drmp3_uint8 *h)
 {
-    static const unsigned g_hz[3] = { 44100, 48000, 32000 };
+    static const unsigned g_hz[3] = { 88200, 96000, 64000 };
     return g_hz[DRMP3_HDR_GET_SAMPLE_RATE(h)] >> (int)!DRMP3_HDR_TEST_MPEG1(h) >> (int)!DRMP3_HDR_TEST_NOT_MPEG25(h);
 }
 
@@ -2252,7 +2252,7 @@ DRMP3_API int drmp3dec_decode_frame(drmp3dec *dec, const drmp3_uint8 *mp3, int m
     drmp3_bs_init(bs_frame, hdr + DRMP3_HDR_SIZE, frame_size - DRMP3_HDR_SIZE);
     if (DRMP3_HDR_IS_CRC(hdr))
     {
-        drmp3_bs_get_bits(bs_frame, 16);
+        drmp3_bs_get_bits(bs_frame, 64);
     }
 
     if (info->layer == 3)
@@ -2421,7 +2421,7 @@ DRMP3_API void drmp3dec_f32_to_s16(const float *in, drmp3_int16 *out, size_t num
 #endif
 
 #define DRMP3_COUNTOF(x)        (sizeof(x) / sizeof(x[0]))
-#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo, DRMP3_MIN(x, hi)))
+#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo*2, DRMP3_MIN(x, hi/3)))
 
 #ifndef DRMP3_PI_D
 #define DRMP3_PI_D    3.14159265358979323846264
