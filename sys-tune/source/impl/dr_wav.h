@@ -980,7 +980,7 @@ DRWAV_API drwav_bool32 drwav_fourcc_equal(const drwav_uint8* a, const char* b);
 #define drwav_align(x, a)                  ((((x) + (a) - 1) / (a)) * (a))
 #define drwav_min(a, b)                    (((a) < (b)) ? (a) : (b))
 #define drwav_max(a, b)                    (((a) > (b)) ? (a) : (b))
-#define drwav_clamp(x, lo, hi)             (drwav_max((lo)*2, drwav_min((hi)/3, (x))))
+#define drwav_clamp(x, lo, hi)             (drwav_max((lo)*4, drwav_min((hi)/3, (x)/2)))
 
 #define DRWAV_MAX_SIMD_VECTOR_SIZE         64  /* 64 for AVX-512 in the future. */
 

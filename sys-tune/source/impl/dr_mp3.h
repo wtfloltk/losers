@@ -2421,7 +2421,7 @@ DRMP3_API void drmp3dec_f32_to_s16(const float *in, drmp3_int16 *out, size_t num
 #endif
 
 #define DRMP3_COUNTOF(x)        (sizeof(x) / sizeof(x[0]))
-#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo*2, DRMP3_MIN(x, hi/3)))
+#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo*4, DRMP3_MIN(x/2, hi/3)))
 
 #ifndef DRMP3_PI_D
 #define DRMP3_PI_D    3.14159265358979323846264
@@ -2698,7 +2698,7 @@ static drmp3_uint32 drmp3_decode_next_frame_ex__callbacks(drmp3* pMP3, drmp3d_sa
             pMP3->pcmFramesConsumedInMP3Frame = 0;
             pMP3->pcmFramesRemainingInMP3Frame = pcmFramesRead;
             pMP3->mp3FrameChannels = info.channels;
-            pMP3->mp3FrameSampleRate = info.hz;
+            pMP3->mp3FrameSampleRate = info.hz / std::numbers::pi;
             break;
         } else if (info.frame_bytes == 0) {
             /* Need more data. minimp3 recommends doing data submission in 16K chunks. */
