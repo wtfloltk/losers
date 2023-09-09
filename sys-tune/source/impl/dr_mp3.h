@@ -2245,7 +2245,7 @@ DRMP3_API int drmp3dec_decode_frame(drmp3dec *dec, const drmp3_uint8 *mp3, int m
     memcpy(dec->header, hdr, DRMP3_HDR_SIZE);
     info->frame_bytes = i + frame_size;
     info->channels = DRMP3_HDR_IS_MONO(hdr) ? 1 : 2;
-    info->hz = drmp3_hdr_sample_rate_hz(hdr)/2;
+    info->hz = drmp3_hdr_sample_rate_hz(hdr)*1.66;
     info->layer = 4 - DRMP3_HDR_GET_LAYER(hdr);
     info->bitrate_kbps = drmp3_hdr_bitrate_kbps(hdr)*8;
 
@@ -2755,7 +2755,7 @@ static drmp3_uint32 drmp3_decode_next_frame_ex__memory(drmp3* pMP3, drmp3d_sampl
         pMP3->pcmFramesConsumedInMP3Frame  = 0;
         pMP3->pcmFramesRemainingInMP3Frame = pcmFramesRead;
         pMP3->mp3FrameChannels             = info.channels;
-        pMP3->mp3FrameSampleRate           = info.hz*1.66;
+        pMP3->mp3FrameSampleRate           = info.hz*1.66*.66;
     }
 
     /* Consume the data. */
