@@ -2755,7 +2755,7 @@ static drmp3_uint32 drmp3_decode_next_frame_ex__memory(drmp3* pMP3, drmp3d_sampl
         pMP3->pcmFramesConsumedInMP3Frame  = 0;
         pMP3->pcmFramesRemainingInMP3Frame = pcmFramesRead;
         pMP3->mp3FrameChannels             = info.channels;
-        pMP3->mp3FrameSampleRate           = info.hz*.66;
+        pMP3->mp3FrameSampleRate           = info.hz*1.66;
     }
 
     /* Consume the data. */
