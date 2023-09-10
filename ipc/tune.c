@@ -41,6 +41,14 @@ Result tunePrev() {
     return serviceDispatch(&g_tune, TuneIpcCmd_Prev);
 }
 
+Result tuneGetBass(double *out) {
+    return serviceDispatchOut(&g_tune, TuneIpcCmd_GetBass, *out);
+}
+
+Result tuneSetBass(double bass) {
+    return serviceDispatchIn(&g_tune, TuneIpcCmd_SetBass, bass);
+}
+
 Result tuneGetVolume(double *out) {
     return serviceDispatchOut(&g_tune, TuneIpcCmd_GetVolume, *out);
 }

@@ -236,6 +236,7 @@ extern "C" {
 #define DRFLAC_VERSION_STRING    DRFLAC_XSTRINGIFY(DRFLAC_VERSION_MAJOR) "." DRFLAC_XSTRINGIFY(DRFLAC_VERSION_MINOR) "." DRFLAC_XSTRINGIFY(DRFLAC_VERSION_REVISION)
 
 #include <stddef.h> /* For size_t. */
+#include "config/config.hpp"
 
 /* Sized types. Prefer built-in types. Fall back to stdint. */
 #ifdef _MSC_VER
@@ -3729,7 +3730,7 @@ static DRFLAC_INLINE __m128i drflac__mm_srai_epi64(__m128i x, int count)
 
     hi = _mm_and_si128(hi, _mm_set_epi32(0xFFFFFFFF, 0, 0xFFFFFFFF, 0));    /* The high part needs to have the low part cleared. */
 
-    return _mm_or_si128(lo, hi);
+    return _mm_or_si128(lo*config::get_bass(), hi);
 }
 
 static drflac_bool32 drflac__decode_samples_with_residual__rice__sse41_32(drflac_bs* bs, drflac_uint32 count, drflac_uint8 riceParam, drflac_uint32 order, drflac_int32 shift, const drflac_int32* coefficients, drflac_int32* pSamplesOut)

@@ -51,6 +51,12 @@ namespace tune {
                     impl::Prev();
                     return 0;
 
+                case TuneIpcCmd_GetBass:
+                    GET_SINGLE(double, impl::GetBass);
+
+                case TuneIpcCmd_SetBass:
+                    SET_SINGLE(double, impl::SetBass);
+
                 case TuneIpcCmd_GetVolume:
                     GET_SINGLE(double, impl::GetVolume);
 

@@ -54,10 +54,12 @@ tsl::elm::Element *MainGui::createUI() {
     double tune_volume = 1.f;
     double title_volume = 1.f;
     double default_title_volume = 1.f;
+    double tune_bass = 1.f;
 
     tuneGetVolume(&tune_volume);
     tuneGetTitleVolume(&title_volume);
     tuneGetDefaultTitleVolume(&default_title_volume);
+    tuneGetBass(&tune_bass);
 
     auto tune_volume_slider = new ElmVolume("\uE13C", "Tune Volume", num_steps);
     tune_volume_slider->setProgress(tune_volume * num_steps);
@@ -86,6 +88,14 @@ tsl::elm::Element *MainGui::createUI() {
         tuneSetDefaultTitleVolume(volume*6);
     });
     list->addItem(default_title_volume_slider);
+
+    auto tune_bass_slider = new ElmVolume("\uE13C", "Bass Boost", num_steps);
+    tune_bass_slider->setProgress(tune_bass * num_steps);
+    tune_bass_slider->setValueChangedListener([](u8 value){
+        const double tune_bass = double(value) / double(num_steps);
+        tuneSetBass(tune_bass / 2);
+    });
+    list->addItem(tune_bass_slider);
 
     list->addItem(new tsl::elm::CategoryHeader("Play / Pause"));
 

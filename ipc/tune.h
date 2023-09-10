@@ -54,6 +54,20 @@ Result tunePrev();
  * @note On FW lower than [6.0.0] this will set the decode volume.
  * @param[out] out volume value (linear factor).
  */
+Result tuneGetBass(double *out);
+
+/**
+ * @brief Set the playback volume.
+ * @note On FW lower than [6.0.0] this will return the decode volume.
+ * @param[in] volume volume value (linear factor).
+ */
+Result tuneSetBass(double bass);
+
+/**
+ * @brief Get the current playback volume.
+ * @note On FW lower than [6.0.0] this will set the decode volume.
+ * @param[out] out volume value (linear factor).
+ */
 Result tuneGetVolume(double *out);
 
 /**

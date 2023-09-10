@@ -49,6 +49,15 @@ void set_repeat(int value) {
     ini_putl("config", "repeat", value, CONFIG_PATH);
 }
 
+auto get_bass() -> double {
+    return ini_getf("config", "bass", 1.f, CONFIG_PATH);
+}
+
+void set_bass(double value) {
+    create_config_dir();
+    ini_putf("config", "bass", value, CONFIG_PATH);
+}
+
 auto get_volume() -> double {
     return ini_getf("config", "volume", 1.f, CONFIG_PATH);
 }

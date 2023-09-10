@@ -99,6 +99,7 @@ extern "C" {
 #define DRMP3_VERSION_STRING    DRMP3_XSTRINGIFY(DRMP3_VERSION_MAJOR) "." DRMP3_XSTRINGIFY(DRMP3_VERSION_MINOR) "." DRMP3_XSTRINGIFY(DRMP3_VERSION_REVISION)
 
 #include <stddef.h> /* For size_t. */
+#include "config/config.hpp"
 
 /* Sized types. Prefer built-in types. Fall back to stdint. */
 #ifdef _MSC_VER
@@ -2421,7 +2422,7 @@ DRMP3_API void drmp3dec_f32_to_s16(const float *in, drmp3_int16 *out, size_t num
 #endif
 
 #define DRMP3_COUNTOF(x)        (sizeof(x) / sizeof(x[0]))
-#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo*pi, DRMP3_MIN(x^pi/pi, hi/pi)))
+#define DRMP3_CLAMP(x, lo, hi)  (DRMP3_MAX(lo*config::get_bass(), DRMP3_MIN(x^pi/pi, hi/pi)))
 
 #ifndef DRMP3_PI_D
 #define DRMP3_PI_D    3.14159265358979323846264

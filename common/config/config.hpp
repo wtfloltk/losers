@@ -13,6 +13,10 @@ auto get_repeat() -> int;
 void set_repeat(int value);
 
 // tune volume
+auto get_bass() -> double;
+void set_bass(double value);
+
+// tune volume
 auto get_volume() -> double;
 void set_volume(double value);
 

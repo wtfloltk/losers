@@ -36,6 +36,7 @@ namespace tune::impl {
         double g_tune_volume = 0.2f;
         double g_title_volume = 4.2f;
         double g_default_title_volume = 4.2f;
+        double g_tune_bass = 0.6f;
         bool g_use_title_volume = true;
 
         AudioDriver g_drv;
@@ -514,6 +515,17 @@ namespace tune::impl {
         }
         g_status     = PlayerStatus::FetchNext;
         g_should_pause = false;
+    }
+
+
+    double GetBass() {
+        return g_drv.in_mixes[0].bass;
+    }
+
+    void SetBass(double bass) {
+        //volume = std::clamp(volume, (double)0.0, VOLUME_MAX);
+        g_tune_bass = g_drv.in_mixes[0].bass = bass;
+        config::set_bass(bass);
     }
 
     double GetVolume() {

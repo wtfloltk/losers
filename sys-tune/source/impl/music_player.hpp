@@ -26,6 +26,8 @@ namespace tune::impl {
     void Next();
     void Prev();
 
+    double GetBass();
+    void SetBass(double bass);
     double GetVolume();
     void SetVolume(double volume);
     double GetTitleVolume();
