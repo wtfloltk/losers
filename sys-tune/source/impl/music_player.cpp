@@ -519,7 +519,7 @@ namespace tune::impl {
 
 
     double GetBass() {
-        return g_drv.in_mixes[0].bass;
+        return config::get_bass();
     }
 
     void SetBass(double bass) {

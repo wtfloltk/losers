@@ -148,7 +148,6 @@ extern "C" {
 #define DRWAV_VERSION_STRING    DRWAV_XSTRINGIFY(DRWAV_VERSION_MAJOR) "." DRWAV_XSTRINGIFY(DRWAV_VERSION_MINOR) "." DRWAV_XSTRINGIFY(DRWAV_VERSION_REVISION)
 
 #include <stddef.h> /* For size_t. */
-#include "config/config.hpp"
 
 /* Sized types. Prefer built-in types. Fall back to stdint. */
 #ifdef _MSC_VER
@@ -948,6 +947,7 @@ DRWAV_API drwav_bool32 drwav_fourcc_equal(const drwav_uint8* a, const char* b);
 #include <string.h> /* For memcpy(), memset() */
 #include <limits.h> /* For INT_MAX */
 
+
 #ifndef DR_WAV_NO_STDIO
 #include <stdio.h>
 #include <wchar.h>
@@ -981,7 +981,7 @@ DRWAV_API drwav_bool32 drwav_fourcc_equal(const drwav_uint8* a, const char* b);
 #define drwav_align(x, a)                  ((((x) + (a) - 1) / (a)) * (a))
 #define drwav_min(a, b)                    (((a) < (b)) ? (a) : (b))
 #define drwav_max(a, b)                    (((a) > (b)) ? (a) : (b))
-#define drwav_clamp(x, lo, hi)             (drwav_max((lo)*config::get_bass(), drwav_min((hi)/3, (x)/2)))
+#define drwav_clamp(x, lo, hi)             (drwav_max(lo, drwav_min((hi)/3, (x)/2)))
 
 #define DRWAV_MAX_SIMD_VECTOR_SIZE         64  /* 64 for AVX-512 in the future. */
 
