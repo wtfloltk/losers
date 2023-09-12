@@ -209,7 +209,7 @@ endif
 
 else
 
-all	:	$(OUTPUT).nsp $(OUTPUT).nro
+all	:	$(OUTPUT).nsp
 
 $(OUTPUT).nsp	:	$(OUTPUT).nso $(OUTPUT).npdm
 
