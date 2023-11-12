@@ -40,11 +40,11 @@ namespace tune::impl {
 
         AudioDriver g_drv;
         constexpr const int MinSampleCount  = 256;
-        constexpr const int MaxChannelCount = 16;
-        constexpr const int BufferCount     = 3;
+        constexpr const int MaxChannelCount = 8;
+        constexpr const int BufferCount     = 2;
         constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s16);
         constexpr const int AudioPoolSize   = AudioSampleSize * BufferCount;
-        alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize*2];
+        alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize];
 
         static_assert((sizeof(AudioMemoryPool) % 0x2000) == 0, "Audio Memory pool needs to be page aligned!");
 
@@ -521,7 +521,7 @@ namespace tune::impl {
     }
 
     void SetVolume(float volume) {
-        volume = std::clamp(volume, 0.f, VOLUME_MAX*66);
+        volume = std::clamp(volume, 0.f, VOLUME_MAX);
         g_tune_volume = g_drv.in_mixes[0].volume = volume;
         config::set_volume(volume);
     }

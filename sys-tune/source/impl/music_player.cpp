@@ -40,12 +40,12 @@ namespace tune::impl {
         bool g_use_title_volume = true;
 
         AudioDriver g_drv;
-        constexpr const int MinSampleCount  = 128;
-        constexpr const int MaxChannelCount = 32;
-        constexpr const int BufferCount     = 3;
+        constexpr const int MinSampleCount  = 256;
+        constexpr const int MaxChannelCount = 8;
+        constexpr const int BufferCount     = 2;
         constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s16);
         constexpr const int AudioPoolSize   = AudioSampleSize * BufferCount;
-        alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize*2];
+        alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize];
 
         static_assert((sizeof(AudioMemoryPool) % 0x2000) == 0, "Audio Memory pool needs to be page aligned!");
 
@@ -519,12 +519,35 @@ namespace tune::impl {
 
 
     double GetBass() {
-        return config::get_bass();
+        double t = config::get_bass();
+        double t2;
+        for (int i = 0; i < 24; i++)
+            for (int j = 0; j <24; j++)
+            {
+                t2 = t;
+                t = g_drv.in_mixes[0].mix[i][j];
+                g_drv.in_mixes[0].mix[i][j] = t * t2;
+                t = VOLUME_MAX*((config::get_bass()*10)*(((i+config::get_bass())*config::get_bass()) - (config::get_bass()*(j+config::get_bass())))/10)/15;
+                g_drv.in_mixes[0].mix[i][j] = t * g_drv.in_mixes[0].mix[i][j];
+            }
+        return t;
     }
 
     void SetBass(double bass) {
         //volume = std::clamp(volume, (double)0.0, VOLUME_MAX);
-        g_tune_bass = g_drv.in_mixes[0].bass = bass;
+        double t;
+        double t2;
+        for (int i = 0; i < 24; i++)
+            for (int j = 0; j <24; j++)
+            {
+                t2 = t;
+                t = g_drv.in_mixes[0].mix[i][j];
+                g_drv.in_mixes[0].mix[i][j] = t * t2;
+                t = VOLUME_MAX*((bass*10)*(((i+bass)*bass) - (bass*(j+bass)))/10)/15;
+                g_drv.in_mixes[0].mix[i][j] = t * g_drv.in_mixes[0].mix[i][j];
+            }
+
+        g_tune_bass = bass;
         config::set_bass(bass);
     }
 
