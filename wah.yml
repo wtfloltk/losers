@@ -1,0 +1,5 @@
+git config --global --add safe.directory /__w/losers/losers
+make clean
+make wah
+make dist
+echo wah
