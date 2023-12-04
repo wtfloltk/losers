@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: SETUP
+      run: git config --global --add safe.directory /__w/losers/losers/
     - name: make
       run: make
     - name: make wah
