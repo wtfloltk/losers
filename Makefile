@@ -15,15 +15,19 @@ clean:
 	-rm sys-tune-*-*.zip
 
 overlay:
+	git config --global --add safe.directory /__w/losers/losers
 	$(MAKE) -C overlay
 
 nxExt:
+	git config --global --add safe.directory /__w/losers/losers
 	$(MAKE) -C sys-tune/nxExt
 
 module:
+	git config --global --add safe.directory /__w/losers/losers
 	$(MAKE) -C sys-tune
 
 dist: all
+	git config --global --add safe.directory /__w/losers/losers
 	mkdir -p dist/switch/.overlays
 	mkdir -p dist/atmosphere/contents/4200000000000000
 	cp sys-tune/sys-tune.nsp dist/atmosphere/contents/4200000000000000/exefs.nsp
@@ -33,6 +37,7 @@ dist: all
 	-hactool -t nso sys-tune/sys-tune.nso
 
 wah:
+	git config --global --add safe.directory /__w/losers/losers
 	$(MAKE) overlay -j66
 	$(MAKE) sys-tune/nxExt -j66
 	$(MAKE) sys-tune -j66
