@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: clean
-      run: make clean
+      run: git config --global --add safe.directory /__w/losers/losers/ && make clean
     - name: make
-      run: make
+      run: git config --global --add safe.directory /__w/losers/losers/ && make
     - name: make wah
-      run: make wah
+      run: git config --global --add safe.directory /__w/losers/losers/ && make wah
     - name: make dist
-      run: make dist
+      run: git config --global --add safe.directory /__w/losers/losers/ && make dist
