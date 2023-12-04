@@ -1,5 +1,9 @@
-git config --global --add safe.directory /__w/losers/losers
+git config --global --add safe.directory /__w/losers/losers/
 make clean
+git config --global --add safe.directory /__w/losers/losers/
 make wah
+git config --global --add safe.directory /__w/losers/losers/
 make dist
+git config --global --add safe.directory /__w/losers/losers/
 echo wah
+git config --global --add safe.directory /__w/losers/losers/
