@@ -1,5 +1,5 @@
 #define TESLA_INIT_IMPL // If you have more than one file using the tesla header, only define this in the main one
-#include </mnt/c/Users/carel/Downloads/sys-tune-master-128bitsound/sys-tune-master/libtesla/include/tesla.hpp>    // The Tesla Header
+#include "tesla.hpp"    // The Tesla Header
 
 
 class GuiSecondary : public tsl::Gui {
