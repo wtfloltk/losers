@@ -1,3 +1,5 @@
+EDIT: GREAT SUCCESS! GITHUB NOW BUILDS THE RELEASES AUTOMATICALLY - SEE ACTIONS TAB/PANEL ABOVE FOR UP TO DATE AUTOMATED BUILDS
+
 # sys-tune
 ## Background audio player for the Nintendo switch + Tesla overlay
 
