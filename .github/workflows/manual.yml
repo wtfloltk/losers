@@ -31,4 +31,4 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
     - name: make
-      run: make wah
+      run: make
