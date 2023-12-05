@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: make module -j66 && && make sys-tune -j66 make overlay -j66
+      run:  make overlay -j66 && echo "Overlay Made"; make module -j66 && echo "Module made"; make sys-tune -j66 && echo "MAIN MADE";
 
     - name: Run check
       run: make wah -j66
