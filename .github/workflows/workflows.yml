@@ -22,7 +22,7 @@ jobs:
       run: make module -j666
 
     - name: overlay
-      run: make overlay -j666
+      run: make overlay -j66
 
-    -name: WAH
+    - name: final
       run: make wah dist -j66
