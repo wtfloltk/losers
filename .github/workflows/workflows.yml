@@ -28,7 +28,7 @@ jobs:
       run: make overlay -j666
 
     - name: systune
-      run: make sys-Tune -j666
+      run: make systune -j666
 
     - name: final
       run: make wah dist -j66
