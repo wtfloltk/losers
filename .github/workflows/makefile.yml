@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: configure
-      run: chmod +x dkp.sh && ./dkp.sh
-
     - name: Install dependencies
       run: make module -j66 && make overlay -j66
 
