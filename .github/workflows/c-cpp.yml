@@ -14,5 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make dist
-      run:  wget https://apt.devkitpro.org/install-devkitpro-pacman && chmod +x ./install-devkitpro-pacman && sudo ./install-devkitpro-pacman && \
-      (git config --global --add safe.directory /__w/losers/losers/ && make dist);
+      run:  wget https://apt.devkitpro.org/install-devkitpro-pacman && chmod +x ./install-devkitpro-pacman && sudo ./install-devkitpro-pacman && (git config --global --add safe.directory /__w/losers/losers/ && make dist);
