@@ -1,3 +1,5 @@
+EDIT2: update readme to force to compile/build/release/distzip in actions
+
 EDIT: GREAT SUCCESS! GITHUB NOW BUILDS THE RELEASES AUTOMATICALLY - SEE ACTIONS TAB/PANEL ABOVE FOR UP TO DATE AUTOMATED BUILDS
 one day ill ! clean my mess
 
