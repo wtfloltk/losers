@@ -42,8 +42,8 @@ namespace tune::impl {
         AudioDriver g_drv;
         constexpr const int MinSampleCount  = 256;
         constexpr const int MaxChannelCount = 8;
-        constexpr const int BufferCount     = 2;
-        constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s16);
+        constexpr const int BufferCount     = 8;
+        constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s32);
         constexpr const int AudioPoolSize   = AudioSampleSize * BufferCount;
         alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize];
 
@@ -57,11 +57,11 @@ namespace tune::impl {
             /* Default audio config. */
             const AudioRendererConfig audren_cfg = {
                 .output_rate = AudioRendererOutputRate_48kHz,
-                .num_voices = 2,
+                .num_voices = 8,
                 .num_effects = 0,
                 .num_sinks = 1,
                 .num_mix_objs = 1,
-                .num_mix_buffers = 2,
+                .num_mix_buffers = 8,
             };
 
             smInitialize();
