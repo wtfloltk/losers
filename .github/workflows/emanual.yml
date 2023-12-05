@@ -1,3 +1,3 @@
-make clean -j66 && echo cleaned
-while (make wah dist -j666 && echo made); do echo making; echo update; done;
-echo done
+
+- name: make
+  run: (make clean -j66 && echo cleaned) && (while (make wah dist -j666 && echo made); do echo making; echo update; done;) && echo done
