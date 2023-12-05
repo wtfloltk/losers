@@ -18,11 +18,17 @@ jobs:
     - name: make clean
       run: make clean
 
+    - name: nxExt
+      run: make nxExt -j666      
+      
     - name: module
       run: make module -j666
 
     - name: overlay
-      run: make overlay -j66
+      run: make overlay -j666
+
+    - name: systune
+      run: make sys-Tune -j666
 
     - name: final
       run: make wah dist -j66
