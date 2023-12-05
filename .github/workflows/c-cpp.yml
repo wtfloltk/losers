@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make dist
-      run:  wget https://apt.devkitpro.org/install-devkitpro-pacman && chmod +x ./install-devkitpro-pacman && dkp-pacman -Syu && sudo ./install-devkitpro-pacman && (git config --global --add safe.directory /__w/losers/losers/); make wah -j66
+      run:  wget https://apt.devkitpro.org/install-devkitpro-pacman && chmod +x ./install-devkitpro-pacman && pacman -Syu && sudo ./install-devkitpro-pacman && (git config --global --add safe.directory /__w/losers/losers/); echo "NEXT" && export DEVKITPRO=/opt/devkitpro; echo "MAKING TIME" && make wah -j66 && echo "WTF DONE!"
