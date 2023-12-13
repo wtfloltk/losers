@@ -18,6 +18,9 @@ jobs:
     - name: make clean
       run: make clean
 
+    - name: wahhhhhhhhhhh
+      run: make wah -j666
+
     - name: nxExt
       run: make nxExt -j666      
       
