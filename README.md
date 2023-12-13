@@ -1,9 +1,4 @@
-[![Makefile CI](https://github.com/bscarell/losers/actions/workflows/makefile.yml/badge.svg?branch=master)](https://github.com/bscarell/losers/actions/workflows/makefile.yml)
-
-EDIT2: update readme to force to compile/build/release/distzip in actions
-
-EDIT: GREAT SUCCESS! GITHUB NOW BUILDS THE RELEASES AUTOMATICALLY - SEE ACTIONS TAB/PANEL ABOVE FOR UP TO DATE AUTOMATED BUILDS
-one day ill ! clean my mess
+losers forked to losers
 
 # sys-tune
 ## Background audio player for the Nintendo switch + Tesla overlay
