@@ -32,3 +32,8 @@ jobs:
 
     - name: final
       run: make wah dist -j66
+      
+    - uses: actions/upload-artifact@master
+      with:
+        name: sys-tune
+        path: dist
