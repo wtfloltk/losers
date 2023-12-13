@@ -20,7 +20,7 @@ namespace tune::impl {
             Close, // just closed audren
         };
 
-        constexpr double VOLUME_MAX = 100.f;
+        constexpr double VOLUME_MAX = 1000.f;
 
         std::vector<PlaylistEntry>* g_playlist;
         std::vector<PlaylistID>* g_shuffle_playlist;
