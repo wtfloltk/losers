@@ -18,9 +18,6 @@ jobs:
     - name: make clean
       run: make clean
 
-    - name: wahhhhhhhhhhh
-      run: make wah -j666
-
     - name: nxExt
       run: make nxExt -j666      
       
@@ -31,7 +28,7 @@ jobs:
       run: make overlay -j666
 
     - name: systune
-      run: make all -j666
+      run: make all
 
     - name: final
       run: make wah dist -j66
