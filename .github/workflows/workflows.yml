@@ -21,23 +21,23 @@ jobs:
 
     - name: nxExt
       run: | 
-        make nxExt -j66666     
+        make nxExt -j66     
       
     - name: module
       run: |
-        make module -j6666
+        make module -j666
 
     - name: overlay
       run: |
-        make overlay -j666
+        make overlay -j66
 
     - name: losers
       run: |
-        make wah -j66
+        make wah -j6
 
     - name: systune
       run: | 
-        make all -j6
+        make all -j6666
     
     - name: final
       run: | 
