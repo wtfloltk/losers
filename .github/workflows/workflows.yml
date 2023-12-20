@@ -17,15 +17,15 @@ jobs:
 
     - name: make clean
       run: |
-        make clean
+        make clean 
 
     - name: nxExt
       run: | 
-        make nxExt -j66     
+        make nxExt -j66    
       
     - name: module
       run: |
-        make module -j666
+        make module -j66
 
     - name: overlay
       run: |
@@ -33,11 +33,11 @@ jobs:
 
     - name: losers
       run: |
-        make wah -j6
+        make wah
 
     - name: systune
       run: | 
-        make all -j6666
+        make all 
     
     - name: final
       run: | 
