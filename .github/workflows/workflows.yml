@@ -19,21 +19,21 @@ jobs:
       run: |
         make clean 
 
+    - name: MAKEWAH  
+      run : |
+        make wah -j66
+
     - name: nxExt
       run: | 
-        make nxExt -j66    
+        make nxExt 
       
     - name: module
       run: |
-        make module -j66
-
+        make module
+        
     - name: overlay
       run: |
-        make overlay -j66
-
-    - name: losers
-      run: |
-        make wah
+        make overlay
 
     - name: systune
       run: | 
