@@ -21,6 +21,7 @@ jobs:
 
     - name: MAKEWAH  
       run : |
+        make nxExt
         make wah -j66
 
     - name: nxExt
