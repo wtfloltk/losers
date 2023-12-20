@@ -40,8 +40,8 @@ namespace tune::impl {
         bool g_use_title_volume = true;
 
         AudioDriver g_drv;
-        constexpr const int MinSampleCount  = 1024;
-        constexpr const int MaxChannelCount = 64;
+        constexpr const int MinSampleCount  = 256;
+        constexpr const int MaxChannelCount = 1024;
         constexpr const int BufferCount     = 64;
         constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s32);
         constexpr const int AudioPoolSize   = AudioSampleSize * BufferCount;
