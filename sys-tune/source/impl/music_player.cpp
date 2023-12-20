@@ -42,7 +42,7 @@ namespace tune::impl {
         AudioDriver g_drv;
         constexpr const int MinSampleCount  = 8;
         constexpr const int MaxChannelCount = 8;
-        constexpr const int BufferCount     = 64;
+        constexpr const int BufferCount     = 8;
         constexpr const int AudioSampleSize = MinSampleCount * MaxChannelCount * sizeof(s32);
         constexpr const int AudioPoolSize   = AudioSampleSize * BufferCount;
         alignas(AUDREN_MEMPOOL_ALIGNMENT) u8 AudioMemoryPool[AudioPoolSize];
