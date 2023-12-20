@@ -21,10 +21,10 @@ jobs:
 
     - name: MAKEWAH  
       run : |
-        make nxExt -j66 && echo nxExt
-        make module -j66 && echo module
-        make overlay -j66 && echo overlay
-        make wah -j66 && echo wah
+        (make nxExt && echo nxExt) &
+        (make module && echo module) &
+        (make overlay && echo overlay) &
+        while (make wah); do echo wah && clear && echo cleared; done;
 
     - name: nxExt
       run: | 
