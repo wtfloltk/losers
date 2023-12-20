@@ -60,8 +60,8 @@ namespace tune::impl {
                 .num_voices = 8,
                 .num_effects = 0,
                 .num_sinks = 1,
-                .num_mix_objs = 24,
-                .num_mix_buffers = 24,
+                .num_mix_objs = 1,
+                .num_mix_buffers = 8,
             };
 
             smInitialize();
