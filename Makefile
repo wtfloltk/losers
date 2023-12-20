@@ -1,5 +1,5 @@
 export GITHASH 		:= $(shell git rev-parse --short HEAD)
-export VERSION 		:= 2.0.0
+export VERSION 		:= 66.0.666
 export API_VERSION 	:= 4
 export WANT_FLAC 	:= 1
 export WANT_MP3 	:= 1
@@ -33,7 +33,7 @@ dist: all
 	cp sys-tune/sys-tune.nsp dist/atmosphere/contents/4200000000000000/exefs.nsp
 	cp overlay/sys-tune-overlay.ovl dist/switch/.overlays/
 	cp sys-tune/toolbox.json dist/atmosphere/contents/4200000000000000/
-	cd dist; zip -r sys-tune-$(VERSION)-$(GITHASH).zip ./**/; cd ../;
+	cd dist; zip -r sys-tune-$(VERSION)-$(GITHASH).zip ./**/; cp *.zip ../; cd ../;
 	-hactool -t nso sys-tune/sys-tune.nso
 
 wah:
