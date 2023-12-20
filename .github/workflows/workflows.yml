@@ -35,9 +35,12 @@ jobs:
       run: | 
         make all
 
+    - name: losers
+      run: |
+        make wah -j66
+    
     - name: final
       run: | 
-        make wah
         make dist
       
     - uses: actions/upload-artifact@master
