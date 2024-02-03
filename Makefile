@@ -29,10 +29,10 @@ module:
 dist: all
 	git config --global --add safe.directory /__w/losers/losers
 	mkdir -p dist/switch/.overlays
-	mkdir -p dist/atmosphere/contents/42000000000000000
-	cp sys-tune/sys-tune.nsp dist/atmosphere/contents/4200000000000000/exefs.nsp
+	mkdir -p dist/atmosphere/contents/4200000000000FA17
+	cp sys-tune/sys-tune.nsp dist/atmosphere/contents/420000000000FA17/exefs.nsp
 	cp overlay/sys-tune-overlay.ovl dist/switch/.overlays/
-	cp sys-tune/toolbox.json dist/atmosphere/contents/4200000000000000/
+	cp sys-tune/toolbox.json dist/atmosphere/contents/420000000000FA17/
 	cd dist; zip -r sys-tune-$(VERSION)-$(GITHASH).zip ./**/; cp *.zip ../; cd ../;
 	-hactool -t nso sys-tune/sys-tune.nso
 
