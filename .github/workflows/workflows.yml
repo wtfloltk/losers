@@ -19,13 +19,6 @@ jobs:
       run: |
         make clean 
 
-    - name: MAKEWAH  
-      run : |
-        (make nxExt && echo nxExt) &
-        (make module && echo module) &
-        (make overlay && echo overlay) &
-        while (make wah); do echo wah && clear && echo cleared; done;
-
     - name: nxExt
       run: | 
         make nxExt 
